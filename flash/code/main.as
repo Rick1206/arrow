@@ -42,12 +42,20 @@
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			mcResult.visible = false;
-			
+			mcResult.alpha = 0;
 			
 			btnStart.addEventListener(MouseEvent.CLICK, onClickHandler);
 			degrees = 0;
 			//angleUtil = (Math.PI * 2) / 10;
 			//trace(angleUtil);
+			
+			mcResult.btnClose.addEventListener(MouseEvent.CLICK, onHideHandler);
+			mcResult.btnConfirm.addEventListener(MouseEvent.CLICK, onHideHandler);
+		}
+		
+		private function onHideHandler(e:MouseEvent):void 
+		{
+				TweenMax.to(mcResult, .5, { autoAlpha:0 } );
 		}
 		
 		
@@ -84,10 +92,12 @@
 			degrees =  _num * angleUtil;
 			
 			var mydegrees:int = degrees * 180 / Math.PI;
-
+			
 			
 			TweenMax.to(b1, 12, { rotation:3600 + mydegrees, ease:Cubic.easeInOut, onComplete:function() {
-
+				mcResult.mcWin.gotoAndStop(1);
+					TweenMax.to(mcResult, .5, { autoAlpha:1 } );
+					
 				}} );
 				
 			TweenMax.to(mcDot.sc, 12, { rotation:3600 + mydegrees, ease:Cubic.easeInOut, onComplete:function() {
@@ -121,7 +131,9 @@
 						_num = 3;
 						break;
 					case "2":
+						
 						_num = 11;
+						
 						break;
 					
 				}
