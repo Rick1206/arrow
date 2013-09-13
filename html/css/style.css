@@ -35,14 +35,14 @@
 	background:url(../img/top.png) no-repeat;
 	height:94px;
 }
-h1 {
+.top h1 {
 	width:185px;
 	height:94px;
 	text-indent:-99999px;
 	overflow:hidden;
 	float:left;
 }
-h1 a {
+.top h1 a {
 	width:185px;
 	height:94px;
 	display:block;

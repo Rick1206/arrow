@@ -28,7 +28,7 @@
 		private var _urlvar:URLVariables;
 		private var _urlloa:URLLoader;
 		private var _num:int;
-		
+		private var mydegrees:int;
 		public function main()
 		{
 			// constructor code
@@ -65,6 +65,8 @@
 		
 		private function onClickHandler(e:MouseEvent):void
 		{
+		
+			btnStart.removeEventListener(MouseEvent.CLICK, onClickHandler);
 			
 			_urlvar = new URLVariables();
 			_urlreq = new URLRequest();
@@ -95,6 +97,9 @@
 		private function onCompInfoHandler(e:Event):void
 		{
 			trace(e.target.data);
+			
+			btnStart.addEventListener(MouseEvent.CLICK, onClickHandler);
+			
 			var strRes:String = e.target.data;
 			//var myData:Object = JSON.decode(e.target.data);
 			
@@ -177,29 +182,43 @@
 					_num = 1;
 					break;
 				case "0": 
-					mcResult.mcWin.visible = true;
-					mcResult.mcLose.visible = false;
-					mcResult.mcWin.gotoAndStop(4);
+					mcResult.mcWin.visible = false;
+					mcResult.mcLose.visible = true;
+					mcResult.mcLose.gotoAndStop(1);
 					_num = 2;
+					
+					degrees = _num * angleUtil;
+					mydegrees = degrees * 180 / Math.PI;
+					
+					TweenMax.to(b1, 12, {rotation: 3600 + mydegrees, ease: Cubic.easeInOut, onComplete: function()
+						{
+							TweenMax.to(mcResult, .5, {autoAlpha: 1});
+						}});
+					TweenMax.to(mcDot.sc, 12, {rotation: 3600 + mydegrees, ease: Cubic.easeInOut, onComplete: function()
+						{
+						
+						}});
+					
+					return;
 					break;
-				case "-3":
+				case "-3": 
 					mcResult.mcWin.visible = false;
 					mcResult.mcLose.visible = true;
 					mcResult.mcLose.gotoAndStop(3);
 					TweenMax.to(mcResult, .5, {autoAlpha: 1});
 					return;
 					break;
-				case "-4":
+				case "-4": 
 					return;
 					break;
-				case "-2":
+				case "-2": 
 					mcResult.mcWin.visible = false;
 					mcResult.mcLose.visible = true;
 					mcResult.mcLose.gotoAndStop(4);
 					TweenMax.to(mcResult, .5, {autoAlpha: 1});
 					return;
 					break;
-				case "-1":
+				case "-1": 
 					mcResult.mcWin.visible = false;
 					mcResult.mcLose.visible = true;
 					mcResult.mcLose.gotoAndStop(2);
@@ -210,7 +229,7 @@
 			
 			degrees = _num * angleUtil;
 			
-			var mydegrees:int = degrees * 180 / Math.PI;
+			mydegrees = degrees * 180 / Math.PI;
 			
 			TweenMax.to(b1, 12, {rotation: 3600 + mydegrees, ease: Cubic.easeInOut, onComplete: function()
 				{
@@ -220,6 +239,8 @@
 				{
 				
 				}});
+				
+				
 		
 		}
 	}

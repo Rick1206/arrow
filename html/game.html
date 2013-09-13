@@ -1,13 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:wb="http://open.weibo.com/wb">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>箭牌卫浴</title>
 		<meta property="wb:webmaster" content="5a21592ffa706969" />
 		<link href="css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<link href="css/select2css2.css" rel="stylesheet" type="text/css" />
-
+		<!-- <link href="css/select2css2.css" rel="stylesheet" type="text/css" /> -->
 		<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=4214712230" type="text/javascript" charset="utf-8"></script>
 	</head>
 
@@ -193,7 +192,7 @@
 			}
 
 			$(function() {
-				
+
 				$.ajax({
 					url : './interface.aspx',
 					data : {
@@ -288,13 +287,55 @@
 						WB2.login(function() {
 
 							WB2.anyWhere(function(W) {
-								W.parseCMD('/statuses/update.json', function(oResult, bStatus) {
+
+								W.widget.publish({
+									'action' : 'publish',
+									'default_image' : 'http://arrowsanitary.showone.com.cn/img/pic1.jpg',
+									'default_text' : '#十分好礼贺国庆，一箭倾心惠中华#2013年箭牌卫浴中秋国庆欢乐购全国大型促销活动火热进行中！箭锋所至，领袖风范！好卫浴、心生活、买建材、选箭牌！了解更多详情，请猛戳！http://arrowsanitary.showone.com.cn/',
+									'callback' : cbk
+								});
+
+								function cbk() {
+									Show_share();
+									//---- get weibo information ---//
+									W.parseCMD('/statuses/user_timeline.json', function(oResult, bStatus) {
+										if (bStatus) {
+											//--- send data host ---//
+											$.ajax({
+												url : './interface.aspx',
+												data : {
+													fun : 'addweibo',
+													weiboid : oResult.statuses[0].user.id,
+													touxiang : oResult.statuses[0].user.profile_image_url
+												},
+												type : 'POST',
+												success : function(data) {
+												},
+												error : function(e) {
+													alert(e);
+												}
+											});
+
+										}
+									}, {
+
+									}, {
+										method : 'get',
+										cache_time : 30
+									});
+
+								}
+
+								 //-- send weibo --//
+								/*W.parseCMD('/statuses/update.json', function(oResult, bStatus) {
 									if (bStatus) {
+
 										Show_share();
 
+										//---- get weibo information ---//
 										W.parseCMD('/statuses/user_timeline.json', function(oResult, bStatus) {
 											if (bStatus) {
-
+												//--- send data host ---//
 												$.ajax({
 													url : './interface.aspx',
 													data : {
@@ -324,7 +365,8 @@
 								}, {
 									method : 'post',
 									cache_time : 30
-								});
+								});*/
+								
 							});
 
 							if ($("#arrow-check-box").attr("checked")) {
