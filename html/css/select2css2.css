@@ -1,0 +1,11 @@
+.personalinfo .select_box { width:134px; height:25px;	float:left; }
+.personalinfo div.tag_select { display:block; color:#999; width:124px; height:25px; background:transparent url("../img/select.gif") no-repeat 0 0; padding:0 5px; line-height:25px; }
+.personalinfo div.tag_select_hover { display:block; color:#666; width:124px; height:25px; background:transparent url("../img/select.gif") no-repeat 0 -25px; padding:0 5px; line-height:25px; }
+.personalinfo div.tag_select_open { display:block; color:#666; width:124px; height:25px; background:transparent url("../img/select.gif") no-repeat 0 -50px; padding:0 5px; line-height:25px; }
+.personalinfo ul.tag_options { position:absolute; padding:0; margin:0; list-style:none; background:transparent url("../img/select.gif") no-repeat right bottom; width:134px; padding:0 0 5px; margin:0; }
+.personalinfo ul.tag_options li { background:transparent url("../img/select.gif") repeat-y -134px 0; display:block; width:124px; padding:0 5px; margin:0; height:25px; text-decoration:none; line-height:25px; color:#999; }
+.personalinfo ul.tag_options li.open_hover { background:transparent url("../img/select.gif") no-repeat 0 -75px; color:#333 }
+.personalinfo ul.tag_options li.open_selected { background:transparent url("../img/select.gif") no-repeat 0 -100px; color:#333 }
+
+
+
