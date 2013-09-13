@@ -222,7 +222,22 @@ h2 a {
 .friends {
 	padding:96px 0 0 154px;
 	width:686px;
+	position: relative;
 }
+/* update by rick*/
+.friends .arrow-friend-count{
+	display: block;
+	position: absolute;
+	width: 107px;
+	height: 33px;
+	top: 12px;
+	left: 331px;
+	font-size: 26pt;
+	font-family: arial;
+	color: #e40943;
+	text-align: center;
+}
+
 .friends img {
 	margin:0 8px 6px 0;
 	float:left;
@@ -444,3 +459,5 @@ h2 a {
 	background:#FFF;
 	z-index:1001;
 }
+
+

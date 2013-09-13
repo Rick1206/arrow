@@ -84,6 +84,8 @@
 						</object>
 					</div>
 					<div class="friends clearfix">
+						<div class="arrow-friend-count"></div>
+						<div id="arrow-gallery">
 						<img src="img/avatar.jpg" width="64" height="59" />
 						<img src="img/avatar.jpg" width="64" height="59" />
 						<img src="img/avatar.jpg" width="64" height="59" />
@@ -102,6 +104,7 @@
 						<img src="img/avatar.jpg" width="64" height="59" />
 						<img src="img/avatar.jpg" width="64" height="59" />
 						<img src="img/avatar.jpg" width="64" height="59" />
+						</div>
 					</div>
 				</div>
 				<div class="footer clearfix">
@@ -200,13 +203,27 @@
 					},
 					type : 'POST',
 					success : function(data) {
-						$(".friends").html(data);
+						$("#arrow-gallery").html(data);
 					},
 					error : function(e) {
 						alert(e);
 					}
 				});
-
+				
+				$.ajax({
+					url : './interface.aspx',
+					data : {
+						fun : 'getcount',
+					},
+					type : 'POST',
+					success : function(data) {
+						$(".arrow-friend-count").html(data);
+					},
+					error : function(e) {
+						alert(e);
+					}
+				});
+				
 				$("#arrow-btn-upload").click(function() {
 
 					if ($("#uname").val() == "") {
