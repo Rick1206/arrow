@@ -126,17 +126,17 @@
 			<h4>关注<a href="#">@箭牌卫浴瓷砖</a>，分享新浪微博给您的好友，
 			<br />
 			即可获取抽奖资格。</h4>
-			<span><a href="javascript:;" onclick="ClosePopup();"><img src="img/btn_ok.jpg" alt="确定" /></a></span>
+			<span><a href="javascript:;" onclick="ClosePopup();" style="display: block;margin: 0 auto; width:119px"><img src="img/btn_ok.jpg" alt="确定" /></a></span>
 		</div>
 
 		<!-- 分享成功弹窗 -->
 		<div id="Popup_2" class="Popup">
-			<a class="close" href="javascript:;" onclick="ClosePopup();"><img src="img/icon_close.png" alt="close" /></a>
+			<a class="close" href="javascript:;" onc<br />lick="ClosePopup();"><img src="img/icon_close.png" alt="close" /></a>
 			<h3>分享成功</h3>
 			<h4>恭喜您已获取抽奖资格，即刻开启幸运大转盘，惊喜好礼送不停！
 			<br />
 			备注：每个微博账号只可获取一次抽奖机会。</h4>
-			<span><a href="javascript:;" onclick="ClosePopup();"><img src="img/btn_ok.jpg" alt="确定" /></a></span>
+			<span><a href="javascript:;"  onclick="ClosePopup();" style="display: block;margin: 0 auto; width:119px"><img src="img/btn_ok.jpg" alt="确定" /></a></span>
 		</div>
 
 		<!-- 微信弹窗 -->
@@ -307,7 +307,7 @@
 
 								W.widget.publish({
 									'action' : 'publish',
-									'default_image' : 'http://arrowsanitary.showone.com.cn/img/pic1.jpg',
+									'default_image' : 'http://arrowsanitary.showone.com.cn/img/weibo.jpg',
 									'default_text' : '#十分好礼贺国庆，一箭倾心惠中华#2013年箭牌卫浴中秋国庆欢乐购全国大型促销活动火热进行中！箭锋所至，领袖风范！好卫浴、心生活、买建材、选箭牌！了解更多详情，请猛戳！http://arrowsanitary.showone.com.cn/',
 									'callback' : cbk
 								});
