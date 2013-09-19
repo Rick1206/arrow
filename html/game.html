@@ -146,7 +146,7 @@
 
 		<!-- 分享成功弹窗 -->
 		<div id="Popup_2" class="Popup">
-			<a class="close" href="javascript:;" onc<br />lick="ClosePopup();"><img src="img/icon_close.png" alt="close" /></a>
+			<a class="close" href="javascript:;" oncick="ClosePopup();"><img src="img/icon_close.png" alt="close" /></a>
 			<h3>分享成功</h3>
 			<h4>恭喜您已获取抽奖资格，即刻开启幸运大转盘，惊喜好礼送不停！
 			<br />
@@ -240,7 +240,9 @@
 				});
 
 				$("#arrow-btn-upload").click(function() {
-
+					
+					 _gaq.push(['_trackEvent', 'game', 'button', 'uploadbutton']);
+					 
 					if ($("#uname").val() == "") {
 						alert("用户姓名不能为空！");
 						return false;
@@ -270,6 +272,8 @@
 						return false;
 					}
 
+					 _gaq.push(['_trackEvent', 'game', 'button', 'uploaduserinfo']);
+					
 					$.ajax({
 						url : './interface.aspx',
 						data : {
@@ -295,6 +299,8 @@
 
 				$("#arrow-btn-share").click(function() {
 					//getStateID
+					_gaq.push(['_trackEvent', 'game', 'button', 'sharebutton']);
+					
 					$.ajax({
 						url : './interface.aspx',
 						data : {
@@ -303,6 +309,7 @@
 						type : 'POST',
 						success : function(data) {
 							if (data > 0) {
+								
 								share_msg();
 							} else {
 								alert("请先完成第一步！");
@@ -328,6 +335,7 @@
 								});
 
 								function cbk() {
+									_gaq.push(['_trackEvent', 'game', 'button', 'sharetoweibo']);
 									Show_share();
 									//---- get weibo information ---//
 									W.parseCMD('/statuses/user_timeline.json', function(oResult, bStatus) {
