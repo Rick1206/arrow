@@ -8,6 +8,21 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<!-- <link href="css/select2css2.css" rel="stylesheet" type="text/css" /> -->
 		<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2654017017" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-44123365-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
 	</head>
 
 	<body class="games">
@@ -86,24 +101,24 @@
 					<div class="friends clearfix">
 						<div class="arrow-friend-count"></div>
 						<div id="arrow-gallery">
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
-						<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
+							<img src="img/avatar.jpg" width="64" height="59" />
 						</div>
 					</div>
 				</div>
@@ -209,7 +224,7 @@
 						alert(e);
 					}
 				});
-				
+
 				$.ajax({
 					url : './interface.aspx',
 					data : {
@@ -223,7 +238,7 @@
 						alert(e);
 					}
 				});
-				
+
 				$("#arrow-btn-upload").click(function() {
 
 					if ($("#uname").val() == "") {
@@ -343,47 +358,47 @@
 
 								}
 
-								 //-- send weibo --//
+								//-- send weibo --//
 								/*W.parseCMD('/statuses/update.json', function(oResult, bStatus) {
-									if (bStatus) {
+								 if (bStatus) {
 
-										Show_share();
+								 Show_share();
 
-										//---- get weibo information ---//
-										W.parseCMD('/statuses/user_timeline.json', function(oResult, bStatus) {
-											if (bStatus) {
-												//--- send data host ---//
-												$.ajax({
-													url : './interface.aspx',
-													data : {
-														fun : 'addweibo',
-														weiboid : oResult.statuses[0].user.id,
-														touxiang : oResult.statuses[0].user.profile_image_url
-													},
-													type : 'POST',
-													success : function(data) {
-													},
-													error : function(e) {
-														alert(e);
-													}
-												});
+								 //---- get weibo information ---//
+								 W.parseCMD('/statuses/user_timeline.json', function(oResult, bStatus) {
+								 if (bStatus) {
+								 //--- send data host ---//
+								 $.ajax({
+								 url : './interface.aspx',
+								 data : {
+								 fun : 'addweibo',
+								 weiboid : oResult.statuses[0].user.id,
+								 touxiang : oResult.statuses[0].user.profile_image_url
+								 },
+								 type : 'POST',
+								 success : function(data) {
+								 },
+								 error : function(e) {
+								 alert(e);
+								 }
+								 });
 
-											}
-										}, {
+								 }
+								 }, {
 
-										}, {
-											method : 'get',
-											cache_time : 30
-										});
+								 }, {
+								 method : 'get',
+								 cache_time : 30
+								 });
 
-									}
-								}, {
-									status : "#十分好礼贺国庆，一箭倾心惠中华#2013年箭牌卫浴中秋国庆欢乐购全国大型促销活动火热进行中！箭锋所至，领袖风范！好卫浴、心生活、买建材、选箭牌！了解更多详情，请猛戳！"
-								}, {
-									method : 'post',
-									cache_time : 30
-								});*/
-								
+								 }
+								 }, {
+								 status : "#十分好礼贺国庆，一箭倾心惠中华#2013年箭牌卫浴中秋国庆欢乐购全国大型促销活动火热进行中！箭锋所至，领袖风范！好卫浴、心生活、买建材、选箭牌！了解更多详情，请猛戳！"
+								 }, {
+								 method : 'post',
+								 cache_time : 30
+								 });*/
+
 							});
 
 							if ($("#arrow-check-box").attr("checked")) {
